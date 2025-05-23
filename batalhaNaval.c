@@ -36,7 +36,8 @@ int main() {
     // 1 1 1 1 1
     // 0 0 1 0 0
 
-    char letras[10] = {'A','B','C','D','E','F','G','H','I','J'}; 
+    char letras[10] = {'A','B','C','D','E','F','G','H','I','J'};
+    int tamanho = 10; 
 
     //Tabuleiro (10x10)
     int tabuleiro[10][10];
@@ -60,7 +61,7 @@ int main() {
     //Navio na vertical
     for (int i = 1; i < 4; i++){
 
-        tabuleiro[i][8] = 3;
+        tabuleiro[i][5] = 3;
 
     }
     
@@ -69,6 +70,21 @@ int main() {
 
         tabuleiro[9][j] = 3;
 
+    }
+
+    //Primeiro Navio na diagonal
+    for (int i = 0; i < tamanho; i++){
+
+        for (int j = 0; j < tamanho; j++)
+
+        if ( (i == 0 && j == 0) || // Ponto (0,0) na diagonal principal
+                 (i == 1 && j == 1) || // Ponto (1,1) na diagonal principal
+                 (i == 2 && j == 2) || // Ponto (2,2) na diagonal principal
+                 (i == 0 && j == 9) || // Ponto (0,9) na diagonal secundária
+                 (i == 1 && j == 8) || // Ponto (1,8) na diagonal secundária
+                 (i == 2 && j == 7)){  // Ponto (2,7) na diagonal secundária
+                   tabuleiro[i][j] = 3; 
+                 } 
     }
 
     //Linhas numeradas 
